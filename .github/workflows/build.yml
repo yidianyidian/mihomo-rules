@@ -1,0 +1,62 @@
+name: Build rules
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/build.yml
+      - rules/foreign-download.list
+      - scripts/validate.sh
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate source rules
+        run: bash scripts/validate.sh rules/foreign-download.list
+
+      - name: Download latest mihomo
+        shell: bash
+        run: |
+          set -euo pipefail
+          asset_url=$(curl -fsSL https://api.github.com/repos/MetaCubeX/mihomo/releases/latest \
+            | jq -r '.assets[] | select(.name | test("^mihomo-linux-amd64-compatible-.*\\.gz$")) | .browser_download_url' \
+            | head -n 1)
+          test -n "$asset_url"
+          curl -fsSL "$asset_url" | gzip -d > /tmp/mihomo
+          chmod +x /tmp/mihomo
+          /tmp/mihomo -v
+
+      - name: Compile MRS artifact
+        run: |
+          /tmp/mihomo convert-ruleset domain text \
+            rules/foreign-download.list foreign-download.mrs
+          sha256sum foreign-download.mrs > SHA256SUMS
+          test -s foreign-download.mrs
+
+      - name: Publish release branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir /tmp/mihomo-rules-release
+          cp foreign-download.mrs SHA256SUMS rules/foreign-download.list \
+            /tmp/mihomo-rules-release/
+          git switch --orphan release
+          git rm -rf .
+          cp /tmp/mihomo-rules-release/* .
+          git add foreign-download.list foreign-download.mrs SHA256SUMS
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git commit -m "build: publish ${GITHUB_SHA}"
+          git push --force origin release
+
