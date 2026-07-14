@@ -52,11 +52,9 @@ jobs:
           cp foreign-download.mrs SHA256SUMS rules/foreign-download.list \
             /tmp/mihomo-rules-release/
           git switch --orphan release
-          git rm -rf .
           cp /tmp/mihomo-rules-release/* .
           git add foreign-download.list foreign-download.mrs SHA256SUMS
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git commit -m "build: publish ${GITHUB_SHA}"
           git push --force origin release
-
