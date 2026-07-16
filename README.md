@@ -51,6 +51,17 @@ rules:
 
 Place the rule before broader GitHub, Google, GFW, and `geolocation-!cn` rules.
 
+## Reusable proxy groups
+
+[`snippets/my-favorites.yaml`](snippets/my-favorites.yaml) contains an
+independent Smart proxy group that selects only the configured frequently used
+nodes. Copy the list item into the `proxy-groups` section of a Mihomo
+configuration.
+
+The snippet contains only a node-name filter and health-check settings. It does
+not contain subscription URLs, server addresses, credentials, or controller
+secrets.
+
 ## Updating
 
 1. Edit `rules/foreign-download.list` using lowercase Clash domain syntax.

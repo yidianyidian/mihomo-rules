@@ -1,0 +1,6 @@
+- name: "我的常用"
+  type: smart
+  include-all: true
+  interval: 180
+  filter: "(?i)Pro-新加坡-BGP-(02|03)(?:\\||$)"
+  url: https://cp.cloudflare.com/generate_204
