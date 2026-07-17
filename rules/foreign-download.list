@@ -1,5 +1,5 @@
 # Foreign developer download domains for mihomo.
-# Covers GitHub releases and containers, Docker Hub, npm/Yarn, PyPI,
+# Covers GitHub releases and containers, Docker Hub, Cargo, npm/Yarn, PyPI,
 # Maven/Gradle, Hugging Face/Xet, and Google developer/software downloads.
 # Keep entries lowercase, unique, and sorted with LC_ALL=C.
 
@@ -12,6 +12,7 @@
 +.cdn-lfs.huggingface.co
 +.codeload.github.com
 +.commondatastorage.googleapis.com
++.crates.io
 +.dl-ssl.google.com
 +.dl.google.com
 +.docker-images-prod.6aa30f8b08e16409b46e0173d6de2f56.r2.cloudflarestorage.com
@@ -48,4 +49,3 @@
 +.services.gradle.org
 +.storage.googleapis.com
 +.transfer.xethub.hf.co
-
