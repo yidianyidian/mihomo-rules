@@ -1,0 +1,59 @@
+# Foreign developer download domains for mihomo.
+# Covers GitHub releases and containers, Docker Hub, Cargo, npm/Yarn, PyPI,
+# Maven/Gradle, Hugging Face/Xet, Google developer/software downloads, and
+# Ubuntu images/packages.
+# Keep entries lowercase, unique, and sorted with LC_ALL=C.
+
++.api.github.com
++.auth.docker.io
++.cas-bridge.xethub.hf.co
++.cas-server.xethub.hf.co
++.cdn-lfs-us-1.hf.co
++.cdn-lfs.hf.co
++.cdn-lfs.huggingface.co
++.codeload.github.com
++.commondatastorage.googleapis.com
++.crates.io
++.dl-ssl.google.com
++.dl.google.com
++.docker-images-prod.6aa30f8b08e16409b46e0173d6de2f56.r2.cloudflarestorage.com
++.download.docker.com
++.download.mlcc.google.com
++.download.tensorflow.google.com
++.downloads.gradle-dn.com
++.downloads.gradle.org
++.edgedl.me.gvt1.com
++.files.pythonhosted.org
++.ghcr.io
++.github-production-release-asset-2e65be.s3.amazonaws.com
++.github-production-user-asset-6210df.s3.amazonaws.com
++.github-releases.githubusercontent.com
++.huggingface.co
++.index.docker.io
++.maven.google.com
++.objects.githubusercontent.com
++.packages.cloud.google.com
++.pkg-containers.githubusercontent.com
++.plugins.gradle.org
++.production.cloudflare.docker.com
++.pypi.org
++.raw.githubusercontent.com
++.redirector.gcpcdn.gvt1.com
++.redirector.gvt1.com
++.registry-1.docker.io
++.registry.docker.io
++.registry.npmjs.org
++.registry.yarnpkg.com
++.release-assets.githubusercontent.com
++.repo.gradle.org
++.repo.maven.apache.org
++.repo1.maven.org
++.services.gradle.org
++.storage.googleapis.com
++.transfer.xethub.hf.co
+archive.ubuntu.com
+cdimage.ubuntu.com
+cloud-images.ubuntu.com
+production.cloudfront.docker.com
+releases.ubuntu.com
+security.ubuntu.com
