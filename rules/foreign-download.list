@@ -54,5 +54,6 @@
 archive.ubuntu.com
 cdimage.ubuntu.com
 cloud-images.ubuntu.com
+production.cloudfront.docker.com
 releases.ubuntu.com
 security.ubuntu.com
